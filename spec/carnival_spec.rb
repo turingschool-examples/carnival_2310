@@ -155,7 +155,7 @@ RSpec.describe Carnival do
   end
 
   describe '#summary' do
-    it 'returns a hash of :visitor_count, :revenue_earned, :most_popular_ride, :most_profitable_ride, and :total_revenue' do
+    it 'returns a hash of :visitor_count, :revenue_earned, :visitors and fav rides and monies spent, list of rides and riders and rides tot rev' do
       carnival = Carnival.new(14)
       ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
       visitor1 = Visitor.new('Bruce', 54, '$12')

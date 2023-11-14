@@ -27,4 +27,15 @@ class Carnival
       ride.total_revenue
     end
   end
+
+  def summary
+    visitors_arr = []
+    summary_hash = {}
+    @rides.each do |ride|
+      visitors_arr << ride.rider_log.keys
+        summary_hash[:visitor_count] = visitors_arr.flatten.uniq.count
+    end
+    summary_hash[:revenue_total] = total_revenue_from_all_rides
+    summary_hash
+  end
 end
