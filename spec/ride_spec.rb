@@ -46,6 +46,23 @@ RSpec.describe Ride do
     expect(ride3.eligible?(visitor1)).to eq(false) # not elligible to ride due to excitement
     expect(ride3.eligible?(visitor4)).to eq(false) # not elligible to ride due to spending_money
     expect(ride3.eligible?(visitor3)).to eq(true) # elligible to ride
+  end
+
+  it 'can add visitor to rider log' do
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+    visitor2 = Visitor.new('Tucker', 36, '$5')
+
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+
+    expect(ride1.rider_log).to eq({}) # rider_log is empty upon instatiation
+
+    ride1.add_visitor_to_rider_log(visitor1)
+
+    expect(ride1.rider_log).to eq({visitor1 => 1}) # visitor1 was added
+
+    ride1.add_visitor_to_rider_log(visitor2)
+
+    expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 1}) # visitor2 was added
 
   end
 
