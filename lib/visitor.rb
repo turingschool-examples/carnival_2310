@@ -10,4 +10,8 @@ class Visitor
   def add_preference(prefrence)
     @preferences << prefrence
   end
+
+  def tall_enough?(height)
+    @height >= height
+  end
 end
