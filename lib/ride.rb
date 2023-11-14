@@ -13,4 +13,12 @@ class Ride
     @rider_log = {}
   end
 
+  def total_revenue
+    @admission_fee * @rider_log.count
+  end
+
+  # def board_rider(visitor)
+
+  # end
+
 end

@@ -19,4 +19,8 @@ RSpec.describe Ride do
     expect(ride1.total_revenue).to eq(0)
   end
 
+  # it 'can board rider' do
+
+  # end
+
 end
