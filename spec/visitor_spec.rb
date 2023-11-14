@@ -12,4 +12,15 @@ RSpec.describe Visitor do
     expect(visitor1.preferences).to eq([])
   end
 
+  it 'can add preferences' do
+    visitor1.add_preference(:gentle)
+    visitor1.add_preference(:thrilling)
+
+    expect(visitor1.preferences).to eq([:gentle, :thrilling])
+  end
+
+  # it 'can determine if visitor is tall enough' do
+
+  # end
+
 end
