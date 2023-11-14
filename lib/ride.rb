@@ -3,7 +3,6 @@ class Ride
               :min_height,
               :admission_fee,
               :excitement,
-              :total_revenue,
               :rider_log
 
   def initialize(attributes)
@@ -11,12 +10,22 @@ class Ride
     @min_height = attributes[:min_height]
     @admission_fee = attributes[:admission_fee]
     @excitement = attributes[:excitement]
-    @total_revenue = 0
     @rider_log = Hash.new(0)
   end
 
   def board_rider(visitor)
+    if visitor.spending_money >= @admission_fee
+      visitor.spending_money -= @admission_fee
+    end
     @rider_log[visitor] += 1
+  end
+
+  def total_revenue
+    total = 0
+    @rider_log.each do |visitor, rides|
+      total += rides * @admission_fee
+    end
+    total
   end
 
 end
