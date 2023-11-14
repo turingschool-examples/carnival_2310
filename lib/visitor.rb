@@ -1,8 +1,8 @@
 class Visitor
   attr_reader :name,
               :height,
-              :spending_money,
               :preferences
+  attr_accessor :spending_money
 
   def initialize(name, height, spending_money)
     @name = name
@@ -15,8 +15,8 @@ class Visitor
     @preferences << preference if !@preferences.include?(preference)
   end
 
-  def tall_enough?(height)
-    @height >= height
+  def tall_enough?(min_height)
+    @height >= min_height
   end
 
 end
