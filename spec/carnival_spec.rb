@@ -99,6 +99,8 @@ RSpec.describe Carnival do
       ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
       ride3 = Ride.new({ name: 'Roller Coaster', min_height: 54, admission_fee: 2, excitement: :thrilling })
 
+      visitor3.add_preference(:gentle)
+
       carnival.add_ride(ride1)
       carnival.add_ride(ride2)
       carnival.add_ride(ride3)
@@ -109,9 +111,7 @@ RSpec.describe Carnival do
       ride2.board_ride(visitor3)
       ride2.board_ride(visitor3)
 
-      visitor3.add_preference(:gentle)
-
-      expect(most_profitable_ride).to eq(ride2)
+      expect(carnival.most_profitable_ride).to eq(ride2)
     end
   end
 end
