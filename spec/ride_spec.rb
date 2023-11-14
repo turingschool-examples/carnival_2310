@@ -25,7 +25,7 @@ describe Ride do
         expect(@ride1.total_revenue).to eq(0)
     end
 
-    it "adds a visitor as a rider and takes the visitor's spending_money if the visitor's height, preferences, and spending_money match the ride" do
+    it "adds a visitor as a rider, takes the visitor's spending_money, and adds to a ride's total revenue IF the visitor's height, preferences, and spending_money match the ride" do
         @ride1.board_rider(@visitor1)
         @ride1.board_rider(@visitor2)
         @ride1.board_rider(@visitor1)
@@ -34,6 +34,8 @@ describe Ride do
             @visitor1 => 2,
             @visitor2 => 1
         })
-        require 'pry'; binding.pry
+        expect(@visitor1.spending_money).to eq(8)
+        expect(@visitor2.spending_money).to eq(4)
+        expect(@ride1.total_revenue).to eq(3)
     end    
 end
