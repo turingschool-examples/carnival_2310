@@ -7,4 +7,8 @@ class Carnival
     @rides = []
   end
 
+  def add_ride(ride)
+    @rides << ride if !@rides.include?(ride)
+  end
+
 end
