@@ -12,11 +12,6 @@ class Carnival
 
   def add_ride(ride)
     @rides << ride
-    # if !@rides.include?(ride)
-    #   @rides << ride
-    # else
-    #   @rides
-    # end
   end
 
   def most_popular_ride
@@ -37,10 +32,36 @@ class Carnival
     end
   end
 
-
   def summary
+    summary_hash = Hash.new
+    summary_hash[:visitor_count] = visitor_count
+    summary_hash[:revenue_earned] = total_revenue
+    summary_hash[:visitors] = visitors_hash
+    # summary_hash[rides] = 
+    #almost got to this
+  end
+
+  def visitor_count
+   visitors_array.count
+  end
+
+  def visitors_array
+    visitors_array = []
+    @rides.each do |ride|
+      visitors_array << ride.rider_log.keys
+    end
+    visitors_array.flatten.uniq
+  end
 
 
+  def visitors_hash
+    visitors_hash = Hash.new
+    visitors_array.each do |visitor|
+      visitors_hash[visitor] = {}
+      visitors_hash[visitor][:favorite_ride] = visitors_fav_ride(visitor)
+      visitors_hash[visitor][:total_money_spent] = visitors_money_spent(visitor)
+    end
+    visitors_hash
   end
 
 

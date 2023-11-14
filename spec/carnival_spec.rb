@@ -103,12 +103,14 @@ RSpec.describe Carnival do
     expect(carnival_1.ride_total_revenue(ride3)).to eq(6)
     expect(carnival_1.visitors_fav_ride(visitor1)).to eq(ride1)
     expect(carnival_1.visitors_money_spent(visitor1)).to eq(7)
-
+    expect(carnival_1.visitor_count).to eq(3)
+    expect(carnival_1.summary).to eq(true)
+    carnival_1.visitors_hash
   end
 
-  xit "has a summary method" do
+    it "has a summary method" do
     carnival_1.ride_total_revenue(ride1)
-
+    expect(carnival_1.summary).to be_a Hash
 
   end
 
