@@ -1,7 +1,7 @@
 require './lib/visitor'
 
 RSpec.describe Visitor do
-  describe '#initialize' do
+  describe 'initialize' do
     it 'creates a new visitor with specified attributes' do
       visitor = Visitor.new('Bruce', 54, '$10')
 
