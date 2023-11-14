@@ -14,4 +14,6 @@ class Carnival
       ride.total_revenue
     end
   end
+
+  
 end
