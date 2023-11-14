@@ -34,26 +34,26 @@ class Carnival
         @rides.sum { |ride| ride.total_revenue }
     end
 
-    def summary
-        summary_hash = {
-            visitor_count: 0,
-            revenue_earned: total_revenue,
-            visitors: [],
-            rides: []
-        }
-        visitors = []
+    # def summary
+    #     summary_hash = {
+    #         visitor_count: 0,
+    #         revenue_earned: total_revenue,
+    #         visitors: [],
+    #         rides: []
+    #     }
+    #     visitors = []
 
-        @rides.map do |ride|
-            visitor_summary_hash = {}
-            ride.rider_log.map do |rider, times_ridden|
-                visitor_summary_hash[:visitor] ||= rider
-                if visitor_summary_hash[:total_money_spent]
-                    visitor_summary_hash[:total_money_spent] += 
-                end
-                    visitor: rider,
-                    favorite_ride: 
-                }
-            end
-        end
-    end
+    #     @rides.map do |ride|
+    #         visitor_summary_hash = {}
+    #         ride.rider_log.map do |rider, times_ridden|
+    #             visitor_summary_hash[:visitor] ||= rider
+    #             if visitor_summary_hash[:total_money_spent]
+    #                 visitor_summary_hash[:total_money_spent] += 
+    #             end
+    #                 visitor: rider,
+    #                 favorite_ride: 
+    #             }
+    #         end
+    #     end
+    # end
 end
