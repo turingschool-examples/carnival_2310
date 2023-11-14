@@ -34,10 +34,11 @@ RSpec.describe Ride do
   end
   
   it 'can total the revenue of the ride' do
+    @visitor1.add_preference(:gentle)
+    @visitor2.add_preference(:gentle)
     @ride1.board_rider(@visitor1)
     @ride1.board_rider(@visitor2)
     @ride1.board_rider(@visitor1)
-    
     # updating other test broke this, will revisit
     expect(@visitor1.spending_money).to eq(8)
     expect(@visitor2.spending_money).to eq(4)
