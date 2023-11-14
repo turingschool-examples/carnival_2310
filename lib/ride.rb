@@ -28,14 +28,17 @@ class Ride
     visitor.spending_money >= @admission_fee
   end
 
+  def add_visitor_to_rider_log(visitor)
+    if @rider_log[visitor]
+      @rider_log[visitor] += 1
+    else
+      @rider_log[visitor] = 1
+    end
+  end
+
   def board_rider(visitor)
     if eligible?(visitor)
-      # add visitor to rider_log
-      if @rider_log[visitor]
-        @rider_log[visitor] += 1
-      else
-        @rider_log[visitor] = 1
-      end
+      add_visitor_to_rider_log(visitor)
 
       #reduce visitor's spending money
       visitor.spending_money -= @admission_fee
