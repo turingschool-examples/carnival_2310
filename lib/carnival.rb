@@ -11,11 +11,12 @@ class Carnival
   end
 
   def add_ride(ride)
-    if !@rides.include?(ride)
-      @rides << ride
-    else
-      @rides
-    end
+    @rides << ride
+    # if !@rides.include?(ride)
+    #   @rides << ride
+    # else
+    #   @rides
+    # end
   end
 
   def most_popular_ride
@@ -29,6 +30,15 @@ class Carnival
       ride.total_revenue
     end
   end
+
+  def total_revenue
+    @rides.map.sum do |ride|
+      ride.total_revenue
+    end
+  end
+
+  
+
 
 
 end
