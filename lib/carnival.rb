@@ -1,4 +1,7 @@
 class Carnival
-    def initialize
+    attr_reader :duration
+
+    def initialize(duration)
+        @duration = duration
     end
 end
