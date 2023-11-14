@@ -11,6 +11,8 @@ class Carnival
   end
 
   def most_popular_ride
-    require 'pry'; binding.pry
+    @rides.max do |ride|
+      ride.total_revenue / ride.admission_fee
+    end
   end
 end
