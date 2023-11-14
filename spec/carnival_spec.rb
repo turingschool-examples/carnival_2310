@@ -4,7 +4,7 @@ require './lib/carnival'
 
 RSpec.describe Carnival do
   before(:each) do
-    @carnival = Carnival.new()
+    @carnival = Carnival.new(14)
   end
 
   describe '#initialize' do
