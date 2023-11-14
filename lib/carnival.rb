@@ -29,4 +29,8 @@ class Carnival
         end
         ride_with_total_revenue.sort_by {|ride, total_revenue| total_revenue}.last[0]
     end
+
+    def total_revenue
+        @rides.sum { |ride| ride.total_revenue }
+    end
 end

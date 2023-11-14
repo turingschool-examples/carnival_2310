@@ -49,8 +49,6 @@ describe Carnival do
     end
 
     it "returns the most_profitable_ride" do
-
-        require 'pry'; binding.pry
         @ride1.board_rider(@visitor1)
         @ride1.board_rider(@visitor2)
         @ride1.board_rider(@visitor1)
@@ -59,5 +57,14 @@ describe Carnival do
         @ride2.board_rider(@visitor3)
 
         expect(@carnival.most_profitable_ride).to eq(@ride2)
+    end
+
+    it "returns the total_revenue from all rides" do
+
+        expect(@carnival.total_revenue).to eq(21)
+
+        @ride1.board_rider(@visitor2)
+
+        expect(@carnival.total_revenue).to eq(22)
     end
 end
