@@ -17,4 +17,15 @@ class Carnival
     end
   end
 
+  def most_profitable_ride
+    ride_revenues = {} # ride => total_revenue
+
+    @rides.map do |ride|
+      ride_revenues[ride] = ride.total_revenue 
+    end
+    
+    most_profitable = ride_revenues.max_by {|ride, total_revenue| total_revenue}
+    most_profitable[0]
+  end
+
 end
