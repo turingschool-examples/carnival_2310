@@ -34,4 +34,10 @@ describe Visitor do
         expect(@visitor3.tall_enough?(54)).to eq true
         expect(@visitor1.tall_enough?(64)).to eq false
     end
+
+    it "removes a specified amount of spending_money with charge_money" do
+        @visitor1.charge_money(6)
+
+        expect(@visitor1.spending_money).to eq(4)
+    end
 end

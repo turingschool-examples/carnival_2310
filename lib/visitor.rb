@@ -15,4 +15,8 @@ class Visitor
     def tall_enough?(height_requirement)
         @height >= height_requirement ? true : false
     end
+
+    def charge_money(amount)
+        @spending_money -= amount
+    end
 end
