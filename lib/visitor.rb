@@ -1,4 +1,4 @@
-
+require 'pry'
 
 class Visitor
 
@@ -14,5 +14,11 @@ class Visitor
   def add_preference(ride_characteristics_key)
     @preferences << ride_characteristics_key
   end
+
+  def tall_enough?(required_height)
+    @height >= required_height
+  end
+
+  
 
 end

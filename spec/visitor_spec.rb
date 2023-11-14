@@ -22,6 +22,18 @@ RSpec.describe Visitor do
     end
   end
 
+  describe 'tall_enough?' do
+    it 'returns correct boolean value if visitor is tall enough' do
+      visitor1 = Visitor.new('Bruce', 54, '$10')
+      visitor2 = Visitor.new('Tucker', 36, '$5')
+      visitor3 = Visitor.new('Penny', 64, '$15')
+
+      expect(visitor1.tall_enough?(54)).to be true
+      expect(visitor2.tall_enough?(54)).to be false
+      expect(visitor3.tall_enough?(54)).to be true
+    end
+  end
+
 
 
 
