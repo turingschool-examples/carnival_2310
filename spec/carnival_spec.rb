@@ -81,4 +81,31 @@ RSpec.describe Carnival do
     expect(carnival.most_profitable_ride).to eq(ride2)
   end
 
+  it 'can return its most popular ride' do 
+    visitor3 = Visitor.new('Penny', 64, '$15')
+    visitor2 = Visitor.new('Tucker', 36, '$5')
+
+    visitor3.add_preference(:gentle)
+    visitor2.add_preference(:gentle)
+    
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+    ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
+    
+    carnival = Carnival.new(14)
+
+    carnival.add_ride(ride1)
+    carnival.add_ride(ride2)
+
+    ride1.board_rider(visitor3)
+    ride1.board_rider(visitor2)
+    ride1.board_rider(visitor2)
+    ride2.board_rider(visitor3)
+    ride2.board_rider(visitor3)
+
+    expect(ride1.rider_log).to eq({visitor3 =>1, visitor2 =>2}) # total rides = 3
+    expect(ride2.rider_log).to eq({visitor3 =>2}) # total rides = 2
+
+    expect(carnival.most_popular_ride).to eq(ride1)
+  end
+
 end
