@@ -1,5 +1,6 @@
 require './lib/visitor.rb'
 require './lib/ride.rb'
+require 'pry'
 
 RSpec.describe Ride do
   before :each do
@@ -74,6 +75,19 @@ RSpec.describe Ride do
       @ride3.board_rider(@visitor3)
 
       expect(@ride3.rider_log.keys).to contain_exactly(@visitor3)
+    end
+
+    it 'will not let a rider ride the ride if too short or against personal preference' do
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor1)
+      @ride3.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+
+      expect(@ride3.rider_log.keys).to contain_exactly(@visitor3)
+      expect(@ride3.board_rider(@visitor1)).to be false
     end
   end
 end

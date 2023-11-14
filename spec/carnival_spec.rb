@@ -123,12 +123,8 @@ RSpec.describe Carnival do
 
       @ride3.board_rider(@visitor3)
       @ride3.board_rider(@visitor3)
-      binding.pry
 
       expect(@carnival1.total_revenues).to eq(7)
     end
   end
-
-
-
 end
