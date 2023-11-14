@@ -1,3 +1,5 @@
+require './lib/visitor.rb'
+require 'pry'
 
 
 class Ride
@@ -10,6 +12,15 @@ class Ride
     @excitement = ride_stats[:excitement]
     @rider_log = {}
     @total_revenue = 0
+  end
+
+  def board_rider(visitor)
+    if visitor.height >= @min_height && visitor.spending_money >= @admission_fee && visitor.preferences.include?(@excitement)
+      
+      visitor.spending_money -= @admission_fee
+      @rider_log[visitor] ||= visitor # @Kate - Managed to throw some memoization in there :P
+      @total_revenue += @admission_fee     
+    end
   end
 
 
