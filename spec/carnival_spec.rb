@@ -7,7 +7,7 @@ RSpec.describe Carnival do
     @carnival = Carnival.new(14)
     @ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
     @ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, admission_fee: 5, excitement: :gentle })
-    @@visitor1 = Visitor.new('Bruce', 54, '$10')
+    @visitor1 = Visitor.new('Bruce', 54, '$10')
     @visitor2 = Visitor.new('Tucker', 36, '$5')
   end
 
@@ -35,7 +35,6 @@ RSpec.describe Carnival do
 
   describe '#most_profitable_ride' do
     it 'returns the ride with the most profit' do
-      expect().to eq()
       @carnival.add_ride(@ride1)
       @carnival.add_ride(@ride2)
 
