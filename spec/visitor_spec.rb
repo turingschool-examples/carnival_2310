@@ -28,7 +28,7 @@ describe Visitor do
         expect(@visitor1.preferences).to eq([:gentle, :thrilling, :tickling])
     end
 
-    it "shows whether a visitor is tall enough for a specified ride height" do
+    it "shows whether a visitor is tall_enough? for a specified ride height" do
         expect(@visitor1.tall_enough?(54)).to eq true
         expect(@visitor2.tall_enough?(54)).to eq false
         expect(@visitor3.tall_enough?(54)).to eq true
