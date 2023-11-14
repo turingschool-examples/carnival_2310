@@ -11,4 +11,8 @@ class Visitor
   def add_preference(preference)
     @preferences << preference
   end
+
+  def tall_enough?(required_height)
+    self.height >= required_height
+  end
 end
