@@ -1,9 +1,12 @@
 class Ride
+  @@rides = []
+  
   attr_reader :name,
               :min_height,
               :admission_fee,
               :excitement,
-              :rider_log
+              :rider_log,
+              :total_revenue
 
   def initialize(ride_details)
     @name = ride_details[:name]
@@ -11,11 +14,12 @@ class Ride
     @admission_fee = ride_details[:admission_fee]
     @excitement = ride_details[:excitement]
     @rider_log = Hash.new(0) # visitor => times_ridden
+    @total_revenue = 0
   end
 
   def total_revenue
     total_times_ridden = @rider_log.values.sum { |times_ridden| times_ridden }
-    @admission_fee * total_times_ridden
+    @total_revenue = @admission_fee * total_times_ridden
   end
 
   def board_rider(visitor)
@@ -35,7 +39,6 @@ class Ride
       visitor.spending_money -= @admission_fee
     else
     end
-
   end
-
+  
 end
