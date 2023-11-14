@@ -20,18 +20,19 @@ RSpec.describe Visitor do
 
     it 'can add preferences' do
       visitor1 = Visitor.new('Bruce', 54, '$10')
-      visitor.add_preferences(:gentle)
+      visitor1.add_preference(:gentle)
 
-      expect(visitor.preferences).to eq([:gentle])
+      expect(visitor1.preferences).to eq([:gentle])
     end
 
     it 'can add an additional preference' do
       visitor1 = Visitor.new('Bruce', 54, '$10')
-      visitor.add_preferences(:gentle)
-      visitor.add_preferences(:thrilling)
+      visitor1.add_preference(:gentle)
 
-      expect(visitor.preferences).to eq([:gentle])
-      expect(visitor.preferences).to eq([:gentle, :thrilling])
+      expect(visitor1.preferences).to eq([:gentle])
+      
+      visitor1.add_preference(:thrilling)
+      expect(visitor1.preferences).to eq([:gentle, :thrilling])
     end
 
 
