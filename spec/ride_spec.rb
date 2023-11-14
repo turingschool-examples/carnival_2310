@@ -14,7 +14,7 @@ RSpec.describe Ride do
     expect(ride1.total_revenue).to eq(0)
   end
 
-  it 'can return total_revenue' do
+  it 'can return total revenue' do
     ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
   
     expect(ride1.total_revenue).to eq(0)
@@ -58,12 +58,30 @@ RSpec.describe Ride do
 
     ride1.add_visitor_to_rider_log(visitor1)
 
-    expect(ride1.rider_log).to eq({visitor1 => 1}) # visitor1 was added
+    expect(ride1.rider_log).to eq({visitor1 => 1}) # visitor1 was added to rider_log
 
     ride1.add_visitor_to_rider_log(visitor2)
 
-    expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 1}) # visitor2 was added
+    expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 1}) # visitor2 was added to rider_log
 
+    ride1.add_visitor_to_rider_log(visitor2)
+
+    expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 2}) # visitor2 ride count was increased
+  end
+
+  it 'can reduce visitor spending money' do
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+    ride3 = Ride.new({ name: 'Roller Coaster', min_height: 54, admission_fee: 2, excitement: :thrilling })
+    
+    ride1.reduce_visitor_spending_money(visitor1)
+
+    expect(visitor1.spending_money).to eq(9)
+
+    ride3.reduce_visitor_spending_money(visitor1)
+
+    expect(visitor1.spending_money).to eq(7)
   end
 
   it 'can board rider' do
