@@ -38,4 +38,23 @@ RSpec.describe Ride do
     expect(ride1.total_revenue).to eq(3)
   end
 
+  it 'can prevent riders from boarding if elligibility requirements are not met' do
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+    visitor2 = Visitor.new('Tucker', 36, '$5')
+    visitor3 = Visitor.new('Penny', 64, '$15')
+    
+    visitor2.add_preference(:thrilling)
+    visitor3.add_preference(:thrilling)
+    
+    ride3 = Ride.new({ name: 'Roller Coaster', min_height: 54, admission_fee: 2, excitement: :thrilling })
+
+    ride3.board_rider(visitor1) # not elligible to ride due to excitement
+    ride3.board_rider(visitor2) # not elligible to ride due to min height
+    ride3.board_rider(visitor3) # elligible to ride
+
+    expect(visitor3.spending_money).to eq(13) # reduced by 2
+    expect(ride3.rider_log).to eq({visitor3 => 1})
+    expect(ride3.total_revenue).to eq(2) # since only visitor 3 was elligible
+  end
+
 end
