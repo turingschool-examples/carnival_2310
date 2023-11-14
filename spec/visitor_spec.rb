@@ -6,7 +6,7 @@ RSpec.describe Visitor do
     it 'can create an instance of visitor' do
     visitor1 = Visitor.new('Bruce', 54, '$10')
 
-    expect(visitor1).to be_instance_of(Vistor)
+    expect(visitor1).to be_instance_of(Visitor)
     end
 
     it "has readable attributes" do
@@ -35,6 +35,6 @@ RSpec.describe Visitor do
     end
 
 
-    
+
   end
 end
