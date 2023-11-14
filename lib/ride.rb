@@ -18,7 +18,7 @@ class Ride
     if visitor.height >= @min_height && visitor.spending_money >= @admission_fee && visitor.preferences.include?(@excitement)
       
       visitor.spending_money -= @admission_fee
-      @rider_log[visitor] ||= 0 # @Kate I figured out a way to utilize memoization here. It adds visitors that are eligable to ride to the rider_log hash.
+      @rider_log[visitor] ||= 0 # @Kat I figured out a way to utilize memoization here. It adds visitors that are eligable to ride to the rider_log hash.
       @rider_log[visitor] += 1 # updates the number of times the visitor rode the ride.
       @total_revenue += @admission_fee  
     else
