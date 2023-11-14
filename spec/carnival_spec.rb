@@ -3,6 +3,9 @@ require './lib/ride.rb'
 require './lib/carnival.rb'
 require 'pry'
 
+
+
+
 RSpec.describe Carnival do
   before :each do
     @carnival1 = Carnival.new(14)
