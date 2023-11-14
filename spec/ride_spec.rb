@@ -28,8 +28,9 @@ RSpec.describe Ride do
       
       ride1.board_rider(visitor1)
       ride1.board_rider(visitor2)
+      ride1.board_rider(visitor1)
 
-      expect(ride1.rider_log).to eq({visitor1 => 1, visitor2 => 1})
+      expect(ride1.rider_log).to eq({visitor1 => 2, visitor2 => 1})
       #expect(ride1.rider_log).to eq({visitor1, visitor2})
       
 

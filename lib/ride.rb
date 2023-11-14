@@ -21,9 +21,13 @@ class Ride
     else
       @rider_log[visitor] += 1
     end
-    #Add to rider_log[visitor] += num_rides accumulated
+  end
 
-    #add rider if rider isn't in hash.  If rider is in hash, += rides_accumulated
-  
+  # visitor.spending_money -= 1(admission_fee) if ride1.board_rider
+  def ride_cost
+    if visitor.ride
+      
+    end
+
   end
 end
