@@ -37,8 +37,30 @@ class Carnival
     end
   end
 
-  
 
+  def summary
+
+
+  end
+
+
+  def ride_total_revenue(ride)
+    ride.total_revenue
+  end
+
+  def rides_riders(ride)
+    ride.rider_log
+  end
+
+  def visitors_fav_ride(visitor)
+    @rides.max_by do |ride|
+      ride.rider_log[visitor]
+    end
+  end
+
+  def visitors_money_spent(visitor)
+    visitor.original_spending_money - visitor.spending_money
+  end
 
 
 end

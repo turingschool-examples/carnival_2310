@@ -2,7 +2,7 @@
 
 class Visitor
 
-  attr_reader :name, :height, :spending_money, :preferences
+  attr_reader :name, :height, :spending_money, :preferences, :original_spending_money
 
   attr_accessor :spending_money
 
@@ -11,6 +11,7 @@ class Visitor
     @height = height
     @spending_money = money.delete("$").to_i
     @preferences = []
+    @original_spending_money = money.delete("$").to_i
   end
 
   def add_preference(preference)

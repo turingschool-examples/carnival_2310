@@ -21,7 +21,6 @@ class Ride
         @total_revenue += @admission_fee
         @rider_log[visitor] += 1
     end
-
   end
 
   def total_revenue

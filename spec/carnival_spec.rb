@@ -98,8 +98,18 @@ RSpec.describe Carnival do
     ride3.board_rider(visitor3)
 
     expect(carnival_1.total_revenue).to eq(14)
+
+    expect(carnival_1.ride_total_revenue(ride1)).to eq(3)
+    expect(carnival_1.ride_total_revenue(ride3)).to eq(6)
+    expect(carnival_1.visitors_fav_ride(visitor1)).to eq(ride1)
+    expect(carnival_1.visitors_money_spent(visitor1)).to eq(7)
+
   end
 
+  xit "has a summary method" do
+    carnival_1.ride_total_revenue(ride1)
 
+
+  end
 
 end
