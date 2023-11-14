@@ -20,6 +20,13 @@ RSpec.describe Carnival do
     expect(@carnival.rides).to eq([])
   end
 
+  it 'can add rides to the array' do
+    @carnival.add_ride(@ride1)
+    @carnival.add_ride(@ride2)
+
+    expect(@carnival.rides).to eq([@ride1, @ride2])
+  end
+
 
 
 end
