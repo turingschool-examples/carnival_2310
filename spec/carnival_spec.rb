@@ -40,6 +40,76 @@ RSpec.describe Carnival do
     end
   end
 
+  describe 'most_popular_ride' do
+    it 'can calculate the most popular ride' do
 
-  
+      @carnival1.add_ride(@ride1)
+      @carnival1.add_ride(@ride2)
+      @carnival1.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+
+      expect(@carnival1.most_popular_ride).to eq(@ride1)
+    end
+  end
+
+  describe 'least_popular_ride' do
+    it 'can calculate the least popular ride' do
+
+      @carnival1.add_ride(@ride1)
+      @carnival1.add_ride(@ride2)
+      @carnival1.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+
+      expect(@carnival1.least_popular_ride).to eq(@ride2)
+    end
+  end
+
+  describe 'most_profitable_ride' do
+    it 'can calculate the most profitable ride' do
+      @carnival1.add_ride(@ride1)
+      @carnival1.add_ride(@ride2)
+      @carnival1.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+
+      expect(@carnival1.most_profitable_ride).to eq(@ride3)
+    end
+  end
+
+  describe 'least_profitable_ride' do
+    it 'can calculate the least profitable ride' do
+      @carnival1.add_ride(@ride1)
+      @carnival1.add_ride(@ride2)
+      @carnival1.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+
+      expect(@carnival1.least_profitable_ride).to eq(@ride2)
+    end
+  end
+
+
+
 end
