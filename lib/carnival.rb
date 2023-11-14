@@ -5,4 +5,6 @@ class Carnival
     @duration = duration
     @rides = []
   end
+
+  
 end
