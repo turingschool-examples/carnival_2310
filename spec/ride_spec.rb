@@ -13,4 +13,10 @@ RSpec.describe Ride do
     expect(ride1.rider_log).to eq({})
   end
 
+  it 'can return total_revenue' do
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+  
+    expect(ride1.total_revenue).to eq(0)
+  end
+
 end
