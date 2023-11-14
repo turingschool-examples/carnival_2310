@@ -18,12 +18,12 @@ RSpec.describe Visitor do
     expect(@visitor1.preferences).to eq([])
   end
 
-  # it 'can add to the array of preferences' do
-  #   @visitor1.add_preference(:gentle)
-  #   @visitor1.add_preference(:thrilling)
+  it 'can add to the array of preferences' do
+    @visitor1.add_preference(:gentle)
+    @visitor1.add_preference(:thrilling)
 
-  #   expect(@visitor1.preferences).to eq([:gentle, :thrilling])
-  # end
+    expect(@visitor1.preferences).to eq([:gentle, :thrilling])
+  end
 
   # it 'can determine if the visitor is tall enough based on threshholds' do
   #   @visitor2 = Visitor.new('Tucker', 36, '$5')
