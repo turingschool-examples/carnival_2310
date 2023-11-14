@@ -21,4 +21,8 @@ class Visitor
     @height >= requirement
   end
 
+  def charge_admission(price)
+    @spending_money -= price
+  end
+
 end
