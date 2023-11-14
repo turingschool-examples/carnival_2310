@@ -11,4 +11,10 @@ class Carnival
     @rides << ride if !@rides.include?(ride)
   end
 
+  def total_revenue
+    @rides.sum do |ride|
+      ride.total_revenue
+    end
+  end
+
 end
