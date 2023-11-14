@@ -12,4 +12,12 @@ RSpec.describe Carnival do
       expect(@carnival).to be_a(Carnival)
     end
   end
+
+  describe '#attributes' do
+    it 'reads and returns attributes' do
+      expect(@carnival.duration).to eq(14)
+      expect(@carnival.rides).to eq([])
+
+    end
+  end
 end
