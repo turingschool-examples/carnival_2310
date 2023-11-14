@@ -10,11 +10,12 @@ class Ride
     @min_height = ride_details[:min_height]
     @admission_fee = ride_details[:admission_fee]
     @excitement = ride_details[:excitement]
-    @rider_log = Hash.new(0)
+    @rider_log = Hash.new(0) # visitor => times_ridden
   end
 
   def total_revenue
-    @admission_fee * @rider_log.count
+    total_times_ridden = @rider_log.values.sum { |times_ridden| times_ridden }
+    @admission_fee * total_times_ridden
   end
 
   def board_rider(visitor)
