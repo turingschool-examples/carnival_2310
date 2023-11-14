@@ -28,4 +28,16 @@ class Carnival
     most_profitable[0]
   end
 
+  def most_popular_ride
+    ride_counts = {} # ride => total_rides
+
+    @rides.map do |ride|
+      total_times_ridden = ride.rider_log.values.sum { |times_ridden| times_ridden }
+      ride_counts[ride] = total_times_ridden
+    end
+    
+    most_popular = ride_counts.max_by {|ride, total_rides| total_rides}
+    most_popular[0]
+  end
+
 end
