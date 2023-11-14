@@ -1,6 +1,7 @@
 require './lib/visitor.rb'
 require './lib/ride.rb'
 require './lib/carnival.rb'
+require 'pry'
 
 RSpec.describe Carnival do
   before :each do
@@ -107,6 +108,24 @@ RSpec.describe Carnival do
       @ride3.board_rider(@visitor3)
 
       expect(@carnival1.least_profitable_ride).to eq(@ride2)
+    end
+  end
+
+  describe 'total_revenues' do
+    it 'can calculate total revenue' do
+      @carnival1.add_ride(@ride1)
+      @carnival1.add_ride(@ride2)
+      @carnival1.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor1)
+
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+      binding.pry
+
+      expect(@carnival1.total_revenues).to eq(7)
     end
   end
 
