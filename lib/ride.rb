@@ -1,6 +1,4 @@
 class Ride
-  @@rides = []
-  
   attr_reader :name,
               :min_height,
               :admission_fee,
