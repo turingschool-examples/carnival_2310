@@ -13,5 +13,10 @@ class Visitor
 
   end
 
+  def add_preference(preference)
+    @preferences << preference
+  end 
+
+  
 
 end
