@@ -23,4 +23,12 @@ class Ride
             @total_revenue += admission_fee
         end
     end
+
+    def rider_list
+        rider_list = []
+        @rider_log.each do |rider, ammount|
+            rider_list.append(rider)
+        end
+        rider_list
+    end
 end
