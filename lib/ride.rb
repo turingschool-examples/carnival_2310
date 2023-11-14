@@ -22,13 +22,13 @@ class Ride
     @total_revenue = @admission_fee * total_times_ridden
   end
 
-  def eligible?(visitor)
+  def eligible?(visitor) # helper method for board_rider
     visitor.tall_enough?(@min_height) &&
     visitor.preferences.include?(@excitement) &&
     visitor.spending_money >= @admission_fee
   end
 
-  def add_visitor_to_rider_log(visitor)
+  def add_visitor_to_rider_log(visitor) # helper method for board_rider
     if @rider_log[visitor]
       @rider_log[visitor] += 1
     else
@@ -36,14 +36,14 @@ class Ride
     end
   end
 
-  def board_rider(visitor)
-    if eligible?(visitor)
-      add_visitor_to_rider_log(visitor)
+  def reduce_visitor_spending_money(visitor) # helper method for board_rider
+    visitor.spending_money -= @admission_fee
+  end
 
-      #reduce visitor's spending money
-      visitor.spending_money -= @admission_fee
-    else
-    end
+  def board_rider(visitor)
+    add_visitor_to_rider_log(visitor) && 
+    reduce_visitor_spending_money(visitor) if
+    eligible?(visitor)
   end
 
 end
