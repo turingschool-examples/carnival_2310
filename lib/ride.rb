@@ -22,12 +22,14 @@ class Ride
     @total_revenue = @admission_fee * total_times_ridden
   end
 
-  def board_rider(visitor)
-    #check if visitor is elligible for ride
-    if visitor.tall_enough?(@min_height) &&
-      visitor.preferences.include?(@excitement) &&
-      visitor.spending_money >= @admission_fee
+  def eligible?(visitor)
+    visitor.tall_enough?(@min_height) &&
+    visitor.preferences.include?(@excitement) &&
+    visitor.spending_money >= @admission_fee
+  end
 
+  def board_rider(visitor)
+    if eligible?(visitor)
       # add visitor to rider_log
       if @rider_log[visitor]
         @rider_log[visitor] += 1
@@ -40,5 +42,5 @@ class Ride
     else
     end
   end
-  
+
 end
