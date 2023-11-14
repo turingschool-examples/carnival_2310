@@ -15,4 +15,8 @@ class Visitor
     @preferences << preference if !@preferences.include?(preference)
   end
 
+  def tall_enough?(height)
+    @height >= height
+  end
+
 end
