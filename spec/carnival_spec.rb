@@ -37,7 +37,7 @@ describe Carnival do
         expect(@carnival.rides).to eq([@ride1, @ride2])
     end
 
-    it "returns the most popular ride" do
+    it "returns the most_popular_ride" do
         @ride1.board_rider(@visitor1)
         @ride1.board_rider(@visitor2)
         @ride1.board_rider(@visitor1)
@@ -46,5 +46,18 @@ describe Carnival do
         @ride2.board_rider(@visitor3)
 
         expect(@carnival.most_popular_ride).to eq(@ride1)
+    end
+
+    it "returns the most_profitable_ride" do
+
+        require 'pry'; binding.pry
+        @ride1.board_rider(@visitor1)
+        @ride1.board_rider(@visitor2)
+        @ride1.board_rider(@visitor1)
+
+        @ride2.board_rider(@visitor1)
+        @ride2.board_rider(@visitor3)
+
+        expect(@carnival.most_profitable_ride).to eq(@ride2)
     end
 end
