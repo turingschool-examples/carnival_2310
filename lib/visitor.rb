@@ -19,4 +19,8 @@ class Visitor
             return false
         end
     end
+
+    def spend_money(ammount)
+        @spending_money -= ammount
+    end
 end
